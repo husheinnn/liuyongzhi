@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>刘咏芝 | A Life Remembered</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Noto+Serif+SC:wght@300;400;500&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+刘咏芝
+</div>
+
+<nav>
+
+<a href="#life">Life</a>
+
+<a href="#timeline">Timeline</a>
+
+<a href="#gallery">Gallery</a>
+
+<a href="#memories">Memories</a>
+
+<a href="#letter">Letter</a>
+
+<a href="#archive">Archive</a>
+
+</nav>
+
+</header>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>
+
+刘咏芝
+
+</h1>
+
+<h2>
+
+LIU YONGZHI
+
+</h2>
+
+<p>
+
+Every life leaves a trace of light.
+
+</p>
+
+<a href="#life" class="enter">
+
+进入纪念馆
+
+</a>
+
+</div>
+
+</section>
+
+<section id="life" class="section">
+
+<div class="container">
+
+<h3>
+
+Life
+
+</h3>
+
+<div class="line"></div>
+
+<p>
+
+这里将介绍刘咏芝女士的一生。
+
+以后可以放人物介绍、成长经历、人生故事。
+
+</p>
+
+</div>
+
+</section>
+
+<section id="timeline" class="section">
+
+<div class="container">
+
+<h3>
+
+Timeline
+
+</h3>
+
+<div class="line"></div>
+
+<p>
+
+这里将制作成长时间轴。
+
+每一年配一张照片和故事。
+
+</p>
+
+</div>
+
+</section>
+
+<section id="gallery" class="section">
+
+<div class="container">
+
+<h3>
+
+Gallery
+
+</h3>
+
+<div class="line"></div>
+
+<div class="gallery">
+
+<div class="photo">
+
+<img src="images/gallery/photo1.jpg">
+
+</div>
+
+<div class="photo">
+
+<img src="images/gallery/photo2.jpg">
+
+</div>
+
+<div class="photo">
+
+<img src="images/gallery/photo3.jpg">
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="memories" class="section">
+
+<div class="container">
+
+<h3>
+
+Memories
+
+</h3>
+
+<div class="line"></div>
+
+<p>
+
+这里记录那些值得永远珍藏的回忆。
+
+</p>
+
+</div>
+
+</section>
+
+<section id="letter" class="section">
+
+<div class="container">
+
+<h3>
+
+Letter
+
+</h3>
+
+<div class="line"></div>
+
+<article>
+
+<h4>
+
+亲爱的妈妈：
+
+</h4>
+
+<p>
+
+这里放你写给妈妈的一封信。
+
+</p>
+
+</article>
+
+</div>
+
+</section>
+
+<section id="archive" class="section">
+
+<div class="container">
+
+<h3>
+
+Archive
+
+</h3>
+
+<div class="line"></div>
+
+<div class="archive-grid">
+
+<div class="card">
+
+<h4>
+
+LYZ-0001
+
+</h4>
+
+<p>
+
+全家福
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h4>
+
+LYZ-0002
+
+</h4>
+
+<p>
+
+毕业照片
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h4>
+
+LYZ-0003
+
+</h4>
+
+<p>
+
+一封信
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>
+
+© liuyongzhi.org
+
+</p>
+
+</footer>
+
+<script src="js/main.js"></script>
+
+</body>
+
+</html>
