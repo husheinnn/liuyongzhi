@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>刘咏芝 永久纪念馆 | IN MEMORY OF LIU YONGZHI</title>
+    <!-- Google Fonts 引入画廊风格高品质衬线字体与无衬线字体 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Noto+Serif+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --------------------------------------------------
+           CSS 变量配置 - 自然/植物园/画廊色调
+        -------------------------------------------------- */
+        :root {
+            --bg-color: #FBF9F5;          /* 温暖米白 ( Warm Gallery White ) */
+            --bg-secondary: #F4F1EA;      /* 淡灰米色 ( Soft Canvas ) */
+            --text-primary: #1F2421;      /* 极深灰墨 ( Ink Black ) */
+            --text-secondary: #5C635E;    /* 苔绿灰 ( Slate Moss ) */
+            --accent-green: #2C3E35;      /* 沉稳深苔绿 ( Botanical Evergreen ) */
+            --accent-warm: #C0A080;       /* 柔暖金棕 ( Warm Timber ) */
+            --border-color: #E2DDD5;      /* 极简网格线色 */
+            --font-serif: 'Noto Serif SC', "Songti SC", "SimSun", serif;
+            --font-en: 'Cinzel', serif;
+        }
+
+        /* 全局基础重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: var(--font-serif);
+            line-height: 1.85;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --------------------------------------------------
+           画廊风格页头与导航
+        -------------------------------------------------- */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(251, 249, 245, 0.92);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo {
+            font-family: var(--font-en);
+            font-size: 1.1rem;
+            letter-spacing: 3px;
+            color: var(--accent-green);
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        nav {
+            display: flex;
+            gap: 24px;
+            overflow-x: auto;
+            padding-bottom: 4px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.88rem;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+            white-space: nowrap;
+        }
+
+        nav a:hover {
+            color: var(--accent-green);
+        }
+
+        /* --------------------------------------------------
+           Hero 模块 (首页/人物简介)
+        -------------------------------------------------- */
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px 60px;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        /* 画廊展示相框 */
+        .portrait-frame {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            box-shadow: 0 16px 36px rgba(0,0,0,0.04);
+        }
+
+        .portrait-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 2px;
+        }
+
+        .hero-content h1 {
+            font-size: 2.8rem;
+            font-weight: 400;
+            color: var(--accent-green);
+            letter-spacing: 4px;
+            margin-bottom: 12px;
+        }
+
+        .hero-content .dates {
+            font-family: var(--font-en);
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            color: var(--accent-warm);
+            margin-bottom: 28px;
+        }
+
+        .quote-box {
+            border-left: 2px solid var(--accent-green);
+            padding-left: 20px;
+            margin: 30px 0;
+            font-style: italic;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+
+        /* --------------------------------------------------
+           常规章节基础样式
+        -------------------------------------------------- */
+        section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 80px 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: var(--accent-green);
+            letter-spacing: 3px;
+        }
+
+        .section-subtitle {
+            font-family: var(--font-en);
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            color: var(--accent-warm);
+            text-transform: uppercase;
+            margin-top: 6px;
+        }
+
+        /* --------------------------------------------------
+           人生时间轴 Timeline
+        -------------------------------------------------- */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: var(--border-color);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            margin-bottom: 40px;
+            position: relative;
+            width: 50%;
+            padding: 0 30px;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            text-align: left;
+        }
+
+        .timeline-date {
+            font-family: var(--font-en);
+            font-size: 0.95rem;
+            color: var(--accent-warm);
+            font-weight: 600;
+        }
+
+        .timeline-title {
+            font-size: 1.1rem;
+            color: var(--accent-green);
+            margin: 4px 0;
+        }
+
+        .timeline-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* --------------------------------------------------
+           影像馆与档案展厅 (Gallery Grid)
+        -------------------------------------------------- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .gallery-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .gallery-card img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .gallery-caption {
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            text-align: center;
+            padding: 4px 0;
+        }
+
+        /* --------------------------------------------------
+           线上纪念空间 (交互献花/点烛)
+        -------------------------------------------------- */
+        .memorial-space {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            padding: 50px 30px;
+            text-align: center;
+            border-radius: 4px;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .btn-action {
+            background: transparent;
+            border: 1px solid var(--accent-green);
+            color: var(--accent-green);
+            padding: 12px 28px;
+            font-family: var(--font-serif);
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+        }
+
+        .btn-action:hover {
+            background: var(--accent-green);
+            color: #ffffff;
+        }
+
+        .tribute-counter {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 10px;
+        }
+
+        /* --------------------------------------------------
+           卡片模块
+        -------------------------------------------------- */
+        .card-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .article-card {
+            border: 1px solid var(--border-color);
+            padding: 24px;
+            background: #ffffff;
+        }
+
+        .article-card h3 {
+            font-size: 1.15rem;
+            color: var(--accent-green);
+            margin-bottom: 8px;
+        }
+
+        .article-card .date {
+            font-size: 0.8rem;
+            color: var(--accent-warm);
+            margin-bottom: 12px;
+        }
+
+        /* --------------------------------------------------
+           页脚 Footer
+        -------------------------------------------------- */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 60px 20px;
+            text-align: center;
+            background: var(--bg-secondary);
+        }
+
+        .footer-domain {
+            font-family: var(--font-en);
+            font-size: 1.1rem;
+            letter-spacing: 3px;
+            color: var(--accent-green);
+            margin-bottom: 10px;
+        }
+
+        .footer-note {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* --------------------------------------------------
+           响应式移动端适配
+        -------------------------------------------------- */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 40px 20px;
+                gap: 30px;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 50px;
+                padding-right: 0;
+                text-align: left !important;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 画廊导航栏 -->
+    <header>
+        <div class="brand-logo">LIU YONGZHI</div>
+        <nav>
+            <a href="#bio">生平</a>
+            <a href="#timeline">时间轴</a>
+            <a href="#gallery">影像馆</a>
+            <a href="#tributes">回忆录</a>
+            <a href="#memorial">纪念空间</a>
+            <a href="#writings">文章文集</a>
+            <a href="#archives">资料档案</a>
+            <a href="#anniversary">年祭活动</a>
+            <a href="#contact">联系与捐赠</a>
+        </nav>
+    </header>
+
+    <!-- 首页 / 人物简介 Hero -->
+    <div class="hero" id="bio">
+        <div class="portrait-frame">
+            <!-- 母亲个人肖像照 -->
+            <img src="portrait.jpg" alt="刘咏芝肖像">
+        </div>
+
+        <div class="hero-content">
+            <h1>刘咏芝</h1>
+            <div class="dates">1978 — 2025</div>
+            
+            <p style="font-size: 1.05rem; color: var(--text-primary);">
+                刘咏芝女士，一位温和、坚韧且内心充满爱与光芒的母亲。她的一生如静谧自然中的馨香，默默滋养与温暖着身边的每一个人。
+            </p>
+
+            <div class="quote-box">
+                “爱如微风，虽不可见，却无处不在。愿这份宁静与温暖，永远留存于天地之间。”
+            </div>
+
+            <p style="font-size: 0.95rem; color: var(--text-secondary);">
+                本网站作为永久纪念空间（liuyongzhi.org），用于长期记录、追忆并传承母亲的人生故事、精神品质与珍贵记忆。
+            </p>
+        </div>
+    </div>
+
+    <!-- 生平与成长历程 -->
+    <section>
+        <div class="section-header">
+            <h2 class="section-title">生平纪事</h2>
+            <div class="section-subtitle">Biography & Life Story</div>
+        </div>
+        <div style="max-width: 750px; margin: 0 auto; font-size: 1rem; color: var(--text-primary); text-align: justify; line-height: 2;">
+            <p style="margin-bottom: 20px;">
+                <strong>【成长与求学】</strong><br>
+                1978年，刘咏芝诞生于湖南桃江。她自幼聪慧善良，在竹乡水土的滋养下成长，展现出对知识的热切追求与坚韧不拔的性格。
+            </p>
+            <p style="margin-bottom: 20px;">
+                <strong>【工作与奉献】</strong><br>
+                在职业生涯中，母亲始终保持勤勉敬业的态度，恪尽职守，待人真诚随和，赢得了同事与朋友的广泛敬重与喜爱。
+            </p>
+            <p>
+                <strong>【家庭与生活】</strong><br>
+                2001年，她第一次成为母亲。作为家庭的核心，她以无限的耐心与深爱守护着子女成长。她热爱自然与生活，她的微笑与包容是家人心中最温暖的港湾。
+            </p>
+        </div>
+    </section>
+
+    <!-- 人生时间轴 -->
+    <section id="timeline">
+        <div class="section-header">
+            <h2 class="section-title">人生时间轴</h2>
+            <div class="section-subtitle">Chronology of Life</div>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-date">1978年</div>
+                <div class="timeline-title">降生于湖南桃江</div>
+                <div class="timeline-desc">诞生于风景秀丽的湖南桃江，开启充实而温馨的一生。</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">2001年</div>
+                <div class="timeline-title">第一次成为母亲</div>
+                <div class="timeline-desc">新生命的到来赋予了她新的身份，母爱如春风般陪伴家人。</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">2025年</div>
+                <div class="timeline-title">深切怀念</div>
+                <div class="timeline-desc">平静离去，但她的微笑、爱与坚韧将永久铭刻在亲友心中。</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 影像馆 -->
+    <section id="gallery">
+        <div class="section-header">
+            <h2 class="section-title">影像馆</h2>
+            <div class="section-subtitle">Visual Gallery</div>
+        </div>
+
+        <div class="gallery-grid">
+            <div class="gallery-card">
+                <!-- 亲友合影 -->
+                <img src="photo1.jpg" alt="与亲友合影">
+                <div class="gallery-caption">与欢聚在一块的亲友欢笑留影</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 线上纪念空间 (献花/点烛) -->
+    <section id="memorial">
+        <div class="section-header">
+            <h2 class="section-title">纪念空间</h2>
+            <div class="section-subtitle">Online Memorial Space</div>
+        </div>
+
+        <div class="memorial-space">
+            <p style="font-size: 1.05rem; color: var(--accent-green);">静心追思 · 寄托哀思</p>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 6px;">您可以为刘咏芝女士献上一束百合，或点亮一盏长明烛。</p>
+
+            <div class="action-buttons">
+                <button class="btn-action" onclick="addFlower()">🌸 献上一束鲜花</button>
+                <button class="btn-action" onclick="lightCandle()">🕯️ 点亮追思长明烛</button>
+            </div>
+
+            <div class="tribute-counter">
+                已献花 <span id="flower-count">108</span> 朵 &nbsp;|&nbsp; 已点亮长明烛 <span id="candle-count">66</span> 盏
+            </div>
+        </div>
+    </section>
+
+    <!-- 回忆录 / 亲友留言 -->
+    <section id="tributes">
+        <div class="section-header">
+            <h2 class="section-title">回忆录与留言</h2>
+            <div class="section-subtitle">Memories & Words</div>
+        </div>
+
+        <div class="card-list">
+            <div class="article-card">
+                <h3>来自家人的追思</h3>
+                <div class="date">全家敬上</div>
+                <p style="font-size: 0.95rem; color: var(--text-secondary);">“您教导我们的善良与坚韧，是留给我们最宝贵的财富。愿您在彼岸安息。”</p>
+            </div>
+            <div class="article-card">
+                <h3>挚友感言</h3>
+                <div class="date">挚友 敬怀</div>
+                <p style="font-size: 0.95rem; color: var(--text-secondary);">“咏芝的微笑与温和永远留在我们心里，她是生命中最温暖的光照。”</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 文章文集 & 资料档案 -->
+    <section id="writings">
+        <div class="section-header">
+            <h2 class="section-title">文章文集与档案</h2>
+            <div class="section-subtitle">Writings & Archives</div>
+        </div>
+
+        <div class="card-list" id="archives">
+            <div class="article-card">
+                <h3>手稿与书信记录</h3>
+                <div class="date">资料档案</div>
+                <p style="font-size: 0.9rem; color: var(--text-secondary);">收录母亲生前留下的书信、日记及生活感悟手稿。</p>
+            </div>
+            <div class="article-card">
+                <h3>证书与荣誉</h3>
+                <div class="date">资料档案</div>
+                <p style="font-size: 0.9rem; color: var(--text-secondary);">记载母亲工作与生活岁月中的重要纪念文件。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 年祭活动 & 联系捐赠 -->
+    <section id="anniversary">
+        <div class="section-header">
+            <h2 class="section-title">年祭与联系</h2>
+            <div class="section-subtitle">Anniversary & Contact</div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;" id="contact">
+            <div style="background: var(--bg-secondary); padding: 24px; border: 1px solid var(--border-color);">
+                <h3 style="color: var(--accent-green); margin-bottom: 12px; font-size: 1.1rem;">📅 纪念日提醒</h3>
+                <p style="font-size: 0.9rem; color: var(--text-secondary);">
+                    每年纪念日与诞辰，家族将举行简朴的追思交流活动。如有亲友拟参加，可提前与我们联系。
+                </p>
+            </div>
+
+            <div style="background: var(--bg-secondary); padding: 24px; border: 1px solid var(--border-color);">
+                <h3 style="color: var(--accent-green); margin-bottom: 12px; font-size: 1.1rem;">✉️ 联系与纪念</h3>
+                <p style="font-size: 0.9rem; color: var(--text-secondary);">
+                    如欲分享您与刘咏芝女士的合影或故事，请发送至邮箱：<br>
+                    <strong>humiyuki1105@outlook.com</strong>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 底部 -->
+    <footer>
+        <div class="footer-domain">LIUYONGZHI.ORG</div>
+        <div class="footer-note">谨以此永久纪念馆，深切怀念亲爱的母亲刘咏芝</div>
+        <div style="font-size: 0.8rem; color: #888; margin-top: 10px;">永久保存 · 传承爱与记忆</div>
+    </footer>
+
+    <!-- 交互脚本 -->
+    <script>
+        function addFlower() {
+            let countEl = document.getElementById('flower-count');
+            let current = parseInt(countEl.innerText);
+            countEl.innerText = current + 1;
+            alert('您已为刘咏芝女士献上一束百合，感谢您的深切追思。');
+        }
+
+        function lightCandle() {
+            let countEl = document.getElementById('candle-count');
+            let current = parseInt(countEl.innerText);
+            countEl.innerText = current + 1;
+            alert('长明烛已点亮，愿光芒陪伴安息。');
+        }
+    </script>
+</body>
+</html>
